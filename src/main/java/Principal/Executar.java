@@ -1,10 +1,23 @@
 package Principal;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import javax.swing.JOptionPane;
+import utility.Arquivo;
+
 public class Executar {
     
     public static void main(String[] args) {
-        int[] valor = {3,6,7,1,134,5,4,134,6,5,247,2457,21,47,24,67,7527247,247,289,28,24,56};
-        quickSort(valor, 0, valor.lenght-1);
+        Arquivo arq = new Arquivo();
+        
+        String nomeDir = JOptionPane.showInputDialog("Digite o diretório do arquivo\nExemplo:\nC:\\Program Files");
+        String nomeArq = JOptionPane.showInputDialog("Digite o nome do arquivo\nExemplo:\nTeste.txt");
+        
+        int[] valor = arq.ler(nomeDir,nomeArq);
+        
+        quickSort(valor[0], 0, valor);
+        System.out.println(Arrays.toString(valor));
         
     }
     
@@ -15,7 +28,6 @@ public class Executar {
             quickSort(vetor, esquerdo, pivo-1);
             quickSort(vetor, pivo+1, direito);
         }
-        
     }
 
     private static int separar(int[] vetor, int esquerdo, int direito) {
@@ -33,13 +45,16 @@ public class Executar {
                 i++;
                 j--;
             }
-            
         }
-        return 0;
+        trocar(vetor, esquerdo, j);
+        return j;
     }
 
     private static void trocar(int[] vetor, int i, int j) {
-        ahsfhshstrhtrhywstrhsrthy
+        int aux = vetor[i];
+        vetor[i] = vetor[j];
+        vetor[j] = aux;        
+        
     }
 }
 
