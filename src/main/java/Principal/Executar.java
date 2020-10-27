@@ -1,60 +1,231 @@
 package Principal;
 
+import quicksort.Algoritmo;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import javax.swing.JOptionPane;
-import utility.Arquivo;
+import utility.*;
+import mergesort.Merge;
 
 public class Executar {
     
-    public static void main(String[] args) {
-        Arquivo arq = new Arquivo();
+    public static void main(String[] args) throws FileNotFoundException, IOException {
+      //Arquivo arq = new Arquivo();
+        Algoritmo alg = new Algoritmo();
+        Message msg = new Message();
+        Merge merge = new Merge();
         
-        String nomeDir = JOptionPane.showInputDialog("Digite o diretório do arquivo\nExemplo:\nC:\\Program Files");
-        String nomeArq = JOptionPane.showInputDialog("Digite o nome do arquivo\nExemplo:\nTeste.txt");
+        List<Integer> valores = new ArrayList<Integer>();
+        int i;
         
-        int[] valor = arq.ler(nomeDir,nomeArq);
-        
-        quickSort(valor[0], 0, valor);
-        System.out.println(Arrays.toString(valor));
-        
-    }
-    
-    public static void quickSort(int esquerdo, int direito, int[] vetor) {
-        if(esquerdo < direito){
-            
-            int pivo = separar(vetor, esquerdo, direito);
-            quickSort(vetor, esquerdo, pivo-1);
-            quickSort(vetor, pivo+1, direito);
-        }
-    }
+        String opcao_alg = JOptionPane.showInputDialog("Qual algoritmo de ordenação deseja executar?\n1 - QuickSort\n2 - MergeSort\n3 - HeapSort");
+        switch (opcao_alg) {
+            case "1":
+                    String opcao_qck = JOptionPane.showInputDialog("Qual arquivo deseja executar?\n1 - 1000 números\n2 - 5000 números\n3 - 10000 números");
+                    if(opcao_qck.equals("1")) {
+                        String arquivo = "D:\\Faculdades\\4ªSemestre\\APS\\1000_numbers.txt";
+                        
+                        BufferedReader br_qck1 = new BufferedReader(new FileReader(arquivo));
+                        
+                        String numeros;
+                        while ((numeros = br_qck1.readLine()) != null) {
+                            int converted = Integer.parseInt(numeros);
+                            valores.add(converted);
+                        }
+                        
+                        int []valor = new int[valores.size()+1];
 
-    private static int separar(int[] vetor, int esquerdo, int direito) {
-        int i = esquerdo+1;
-        int j = direito;
-        int pivo = vetor[esquerdo];
-        
-        while(i <= j){
-            if(vetor[i] <= pivo){
-                i++;
-            } else if(vetor[j] > pivo){
-                j--;
-            } else if(i <= j){
-                trocar(vetor, i, j);
-                i++;
-                j--;
-            }
-        }
-        trocar(vetor, esquerdo, j);
-        return j;
-    }
+                        for (i = 0; i <= 9999; i++) {
+                            valor[i] = valores.get(i);
+                            System.out.println((i + 1) + "º numero: " + valores.get(i));
+                        }
 
-    private static void trocar(int[] vetor, int i, int j) {
-        int aux = vetor[i];
-        vetor[i] = vetor[j];
-        vetor[j] = aux;        
-        
+                        alg.quickSort(valor, 0, valor.length - 1);
+                        
+                        System.exit(0);
+                    } else if(opcao_qck == "2") {
+                        String arquivo = "D:\\Faculdades\\4ªSemestre\\APS\\5000_numbers.txt";
+                        
+                        BufferedReader br_qck2 = new BufferedReader(new FileReader(arquivo));
+                        
+                        String numeros;
+                        while ((numeros = br_qck2.readLine()) != null) {
+                            int converted = Integer.parseInt(numeros);
+                            valores.add(converted);
+                        }
+                        
+                        int []valor = new int[valores.size()+1];
+
+                        for (i = 0; i <= 9999; i++) {
+                            valor[i] = valores.get(i);
+                            System.out.println((i + 1) + "º numero: " + valores.get(i));
+                        }
+
+                        alg.quickSort(valor, 0, valor.length - 1);
+                        
+                        System.exit(0);
+                    } else if(opcao_qck == "3"){
+                        String arquivo = "D:\\Faculdades\\4ªSemestre\\APS\\10000_numbers.txt";
+                        
+                        BufferedReader br_qck3 = new BufferedReader(new FileReader(arquivo));
+                        
+                        String numeros;
+                        while ((numeros = br_qck3.readLine()) != null) {
+                            int converted = Integer.parseInt(numeros);
+                            valores.add(converted);
+                        }
+                        
+                        int []valor = new int[valores.size()+1];
+
+                        for (i = 0; i <= 9999; i++) {
+                            valor[i] = valores.get(i);
+                            System.out.println((i + 1) + "º numero: " + valores.get(i));
+                        }
+
+                        alg.quickSort(valor, 0, valor.length - 1);
+                        
+                        System.exit(0);
+                    } else {
+                        msg.showErrorMessage();
+                        System.exit(0);
+                    }
+                break;
+            case "2":
+                    String opcao_mrg = JOptionPane.showInputDialog("Qual arquivo deseja executar?\n1 - 1000 números\n2 - 5000 números\n3 - 10000 números");
+                    if(opcao_mrg == "1") {
+                        String arquivo = "D:\\Faculdades\\4ªSemestre\\APS\\1000_numbers.txt";
+                        
+                        BufferedReader br_mrg1 = new BufferedReader(new FileReader(arquivo));
+                        
+                        String numeros;
+                        while ((numeros = br_mrg1.readLine()) != null) {
+                            int converted = Integer.parseInt(numeros);
+                            valores.add(converted);
+                        }
+
+                        merge.merge(valores, 0, 9999);
+                        for (i = 0; i <= 9999; i++) {
+                            System.out.println((i + 1) + "º numero: " + valores.get(i));
+                        }
+                        
+                        System.exit(0);
+                    } else if(opcao_mrg == "2") {
+                        String arquivo = "D:\\Faculdades\\4ªSemestre\\APS\\5000_numbers.txt";
+                        
+                        BufferedReader br_mrg2 = new BufferedReader(new FileReader(arquivo));
+
+                        String numeros;
+                        while ((numeros = br_mrg2.readLine()) != null) {
+                            int converted = Integer.parseInt(numeros);
+                            valores.add(converted);
+                        }
+                       
+                        merge.merge(valores, 0, 9999);
+                        for (i = 0; i <= 9999; i++) {
+                            System.out.println((i + 1) + "º numero: " + valores.get(i));
+                        }
+                        
+                        System.exit(0);
+                    } else if(opcao_mrg == "3"){
+                        String arquivo = "D:\\Faculdades\\4ªSemestre\\APS\\10000_numbers.txt";
+                        
+                        BufferedReader br_mrg3 = new BufferedReader(new FileReader(arquivo));
+                        
+                        String numeros;
+                        while ((numeros = br_mrg3.readLine()) != null) {
+                            int converted = Integer.parseInt(numeros);
+                            valores.add(converted);
+                        }
+                        
+                        merge.merge(valores, 0, 9999);
+                        for (i = 0; i <= 9999; i++) {
+                            System.out.println((i + 1) + "º numero: " + valores.get(i));
+                        }
+                        
+                        System.exit(0);
+                    } else {
+                        msg.showErrorMessage();
+                        System.exit(0);
+                    }
+                break;
+            case "3":
+                    String opcao_hep = JOptionPane.showInputDialog("Qual arquivo deseja executar?\n1 - 1000 números\n2 - 5000 números\n3 - 10000 números");
+                    if(opcao_hep == "1") {
+                        String arquivo = "D:\\Faculdades\\4ªSemestre\\APS\\1000_numbers.txt";
+                        
+                        BufferedReader br_hep1 = new BufferedReader(new FileReader(arquivo));
+                        
+                        String numeros;
+                        while ((numeros = br_hep1.readLine()) != null) {
+                            int converted = Integer.parseInt(numeros);
+                            valores.add(converted);
+                        }
+                        
+                        int []valor = new int[valores.size()];
+
+                        for (i = 0; i <= 9999; i++) {
+                            valor[i] = valores.get(i);
+                            System.out.println((i + 1) + "º numero: " + valores.get(i));
+                        }
+
+                        alg.quickSort(valor, 0, valor.length - 1);
+                        
+                        System.exit(0);
+                    } else if(opcao_hep == "2") {
+                        String arquivo = "D:\\Faculdades\\4ªSemestre\\APS\\5000_numbers.txt";
+                        
+                        BufferedReader br_hep2 = new BufferedReader(new FileReader(arquivo));
+                        
+                        String numeros;
+                        while ((numeros = br_hep2.readLine()) != null) {
+                            int converted = Integer.parseInt(numeros);
+                            valores.add(converted);
+                        }
+                        
+                        int []valor = new int[valores.size()];
+
+                        for (i = 0; i <= 9999; i++) {
+                            valor[i] = valores.get(i);
+                            System.out.println((i + 1) + "º numero: " + valores.get(i));
+                        }
+
+                        alg.quickSort(valor, 0, valor.length - 1);
+                        
+                        System.exit(0);
+                    } else if(opcao_hep == "3"){
+                        String arquivo = "D:\\Faculdades\\4ªSemestre\\APS\\10000_numbers.txt";
+                        
+                        BufferedReader br_hep3 = new BufferedReader(new FileReader(arquivo));
+                        
+                        String numeros;
+                        while ((numeros = br_hep3.readLine()) != null) {
+                            int converted = Integer.parseInt(numeros);
+                            valores.add(converted);
+                        }
+                        
+                        int []valor = new int[valores.size()];
+
+                        for (i = 0; i <= 9999; i++) {
+                            valor[i] = valores.get(i);
+                            System.out.println((i + 1) + "º numero: " + valores.get(i));
+                        }
+
+                        alg.quickSort(valor, 0, valor.length - 1);
+                        
+                        System.exit(0);
+                    } else {
+                        msg.showErrorMessage();
+                        System.exit(0);
+                    }
+                break;
+            default:
+                msg.showErrorMessage();
+                System.exit(0);
+        }
     }
 }
 
