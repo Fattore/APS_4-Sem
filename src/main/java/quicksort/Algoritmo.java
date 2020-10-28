@@ -1,38 +1,40 @@
 package quicksort;
 
+import java.util.List;
+
 public class Algoritmo {
     
-    public static void quickSort(int[] vetor, int esquerdo, int direito) {
+    public static void quickSort(List<Integer> lista, int esquerdo, int direito) {
         if(esquerdo < direito) {
-            int pivo = separar(vetor, esquerdo, direito);
-            quickSort(vetor, esquerdo, pivo - 1);
-            quickSort(vetor, pivo + 1, direito);
+            int pivo = separar(lista, esquerdo, direito);
+            quickSort(lista, esquerdo, pivo - 1);
+            quickSort(lista, pivo + 1, direito);
         }
     }
 
-    private static int separar(int[] vetor, int esquerdo, int direito) {
+    private static int separar(List<Integer> lista, int esquerdo, int direito) {
         int i = esquerdo + 1;
         int j = direito;
-        int pivo = vetor[esquerdo];
+        int pivo = lista.get(esquerdo);
         
         while (i <= j) {
-            if(vetor[i] <= pivo) {
+            if(lista.get(i) <= pivo) {
                 i++;
-            } else if(vetor[j] > pivo) {
+            } else if(lista.get(j) > pivo) {
                 j--;
             } else if(i <= j) {
-                trocar(vetor, i, j);
+                trocar(lista, i, j);
                 i++;
                 j--;
             }
         }
-        trocar(vetor, esquerdo, j);
+        trocar(lista, esquerdo, j);
         return j;
     }
 
-    private static void trocar(int[] vetor, int i, int j) {
-        int aux = vetor[i];
-        vetor[i] = vetor[j];
-        vetor[j] = aux;           
+    private static void trocar(List<Integer> lista, int i, int j) {
+        int aux = lista.get(i);
+        lista.set(i, lista.get(j));
+        lista.set(j, aux);           
     }
 }
