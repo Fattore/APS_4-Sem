@@ -38,11 +38,18 @@ public class Executar {
                             valores.add(converted);
                         }
 
+                        long tempoInicial = System.currentTimeMillis();                       
+
                         alg.quickSort(valores, 0, 999);
+                        
+                        long tempoFinal = System.currentTimeMillis();
+
+
                         for (i = 0; i <= 999; i++) {
                             System.out.println((i + 1) + "º numero: " + valores.get(i));
                         }                        
-                       
+
+                        System.out.println("o metodo executou em: " + (tempoFinal - tempoInicial)/ 1000d+ "s");                       
                         System.exit(0);
                     } else if(opcao_qck.equals("2")) {
                         String arquivo = "D:\\Faculdades\\4ªSemestre\\APS\\5000_numbers.txt";
@@ -55,11 +62,18 @@ public class Executar {
                             valores.add(converted);
                         }
                         
+                       long tempoInicial = System.currentTimeMillis();                       
+
                         alg.quickSort(valores, 0, 4999);
+                        
+                        long tempoFinal = System.currentTimeMillis();
+
+
                         for (i = 0; i <= 4999; i++) {
                             System.out.println((i + 1) + "º numero: " + valores.get(i));
                         }  
-                        
+
+                        System.out.println("o metodo executou em: " + (tempoFinal - tempoInicial)/ 1000d + "s");                        
                         System.exit(0);
                     } else if(opcao_qck.equals("3")){
                         String arquivo = "D:\\Faculdades\\4ªSemestre\\APS\\10000_numbers.txt";
@@ -72,11 +86,18 @@ public class Executar {
                             valores.add(converted);
                         }
                         
+                       long tempoInicial = System.currentTimeMillis();                       
+
                         alg.quickSort(valores, 0, 9999);
+                        
+                        long tempoFinal = System.currentTimeMillis();
+
+
                         for (i = 0; i <= 9999; i++) {
                             System.out.println((i + 1) + "º numero: " + valores.get(i));
                         }  
-                        
+
+                        System.out.println("o metodo executou em: " + (tempoFinal - tempoInicial)/ 1000d + "s");                        
                         System.exit(0); 
                     } else {
                         msg.showErrorMessage();
@@ -96,11 +117,18 @@ public class Executar {
                             valores.add(converted);
                         }
 
+                        long tempoInicial = System.currentTimeMillis();                       
+
                         merge.merge(valores, 0, 999);
+                        
+                        long tempoFinal = System.currentTimeMillis();
+
+
                         for (i = 0; i <= 999; i++) {
                             System.out.println((i + 1) + "º numero: " + valores.get(i));
                         }
-                        
+
+                        System.out.println("o metodo executou em: " + (tempoFinal - tempoInicial)/ 1000d + "s");                        
                         System.exit(0);
                     } else if(opcao_mrg.equals("2")) {
                         String arquivo = "D:\\Faculdades\\4ªSemestre\\APS\\5000_numbers.txt";
@@ -113,11 +141,18 @@ public class Executar {
                             valores.add(converted);
                         }
                        
+                        long tempoInicial = System.currentTimeMillis();                       
+
                         merge.merge(valores, 0, 4999);
+                        
+                        long tempoFinal = System.currentTimeMillis();
+
+
                         for (i = 0; i <= 4999; i++) {
                             System.out.println((i + 1) + "º numero: " + valores.get(i));
                         }
-                        
+
+                        System.out.println("o metodo executou em: " + (tempoFinal - tempoInicial)/ 1000d + "s");                        
                         System.exit(0);
                     } else if(opcao_mrg.equals("3")){
                         String arquivo = "D:\\Faculdades\\4ªSemestre\\APS\\10000_numbers.txt";
@@ -130,11 +165,18 @@ public class Executar {
                             valores.add(converted);
                         }
                         
+                        long tempoInicial = System.currentTimeMillis();                       
+
                         merge.merge(valores, 0, 9999);
+                        
+                        long tempoFinal = System.currentTimeMillis();
+
+
                         for (i = 0; i <= 9999; i++) {
                             System.out.println((i + 1) + "º numero: " + valores.get(i));
                         }
-                        
+
+                        System.out.println("o metodo executou em: " + (tempoFinal - tempoInicial)/ 1000d + "s");                        
                         System.exit(0);
                     } else {
                         msg.showErrorMessage();
@@ -154,11 +196,18 @@ public class Executar {
                             valores.add(converted);
                         }  
                         
+                        long tempoInicial = System.currentTimeMillis();                       
+
                         heapsort.heapsort(valores);
+                        
+                        long tempoFinal = System.currentTimeMillis();
+
+
                         for (i = 0; i <= 999; i++) {
                             System.out.println((i + 1) + "º numero: " + valores.get(i));
                         } 
-                        
+
+                        System.out.println("o metodo executou em: " + (tempoFinal - tempoInicial)/ 1000d + "s");                        
                         System.exit(0);
                     } else if(opcao_hep.equals("2")) {
                         String arquivo = "D:\\Faculdades\\4ªSemestre\\APS\\5000_numbers.txt";
@@ -171,11 +220,18 @@ public class Executar {
                             valores.add(converted);
                         }
                         
+                        long tempoInicial = System.currentTimeMillis();                       
+
                         heapsort.heapsort(valores);
+                        
+                        long tempoFinal = System.currentTimeMillis();
+
+
                         for (i = 0; i <= 4999; i++) {
                             System.out.println((i + 1) + "º numero: " + valores.get(i));
                         } 
-                        
+
+                        System.out.println("o metodo executou em: " + (tempoFinal - tempoInicial)/ 1000d + "s");                        
                         System.exit(0);
                     } else if(opcao_hep.equals("3")){
                         String arquivo = "D:\\Faculdades\\4ªSemestre\\APS\\10000_numbers.txt";
@@ -188,11 +244,17 @@ public class Executar {
                             valores.add(converted);
                         }
                         
+                        long tempoInicial = System.currentTimeMillis();                       
+
                         heapsort.heapsort(valores);
+                        
+                        long tempoFinal = System.currentTimeMillis();
+
                         for (i = 0; i <= 9999; i++) {
                             System.out.println((i + 1) + "º numero: " + valores.get(i));
                         }                      
                         
+                        System.out.println("o metodo executou em: " + (tempoFinal - tempoInicial)/ 1000d + "s");                        
                         System.exit(0);
                     } else {
                         msg.showErrorMessage();
